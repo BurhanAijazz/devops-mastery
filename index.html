@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Mastery — 16-Week Learning Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="topbar-brand">
+            <span class="brand-icon">&#9881;</span>
+            <h1>DevOps Mastery</h1>
+            <span class="brand-tag">16-Week Learning Portal</span>
+        </div>
+        <div class="topbar-actions">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search weeks, topics... ( / )" aria-label="Search">
+                <span class="search-icon">&#128269;</span>
+            </div>
+            <button class="btn-icon" id="expandAllBtn" title="Expand All (E)">&#9660; Expand</button>
+            <button class="btn-icon" id="collapseAllBtn" title="Collapse All">&#9650; Collapse</button>
+            <div class="font-controls">
+                <button class="btn-icon btn-font" id="fontDecBtn" title="Decrease font size">A-</button>
+                <button class="btn-icon btn-font" id="fontIncBtn" title="Increase font size">A+</button>
+            </div>
+            <button class="btn-icon" id="darkModeToggle" title="Toggle Theme">&#9790;</button>
+            <button class="btn-icon" id="kbShortcutsBtn" title="Keyboard Shortcuts (?)">&#9000;</button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <h2>Course Navigator</h2>
+                <div class="progress-summary">
+                    <div class="progress-bar-container">
+                        <div class="progress-bar" id="globalProgressBar"></div>
+                    </div>
+                    <span class="progress-text" id="globalProgressText">0% Complete</span>
+                </div>
+                <div class="difficulty-filter" id="difficultyFilter">
+                    <button class="diff-btn active" data-diff="all">All</button>
+                    <button class="diff-btn" data-diff="beginner">Beginner</button>
+                    <button class="diff-btn" data-diff="intermediate">Intermediate</button>
+                    <button class="diff-btn" data-diff="advanced">Advanced</button>
+                </div>
+            </div>
+            <nav class="sidebar-nav" id="sidebarNav">
+                <!-- Populated by JS -->
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn-resource" id="showBookmarksBtn">&#9733; Bookmarks</button>
+                <button class="btn-resource" id="showGlossaryBtn">&#9776; Command Glossary</button>
+                <button class="btn-resource" id="showQuizBtn">&#10068; Quiz Mode</button>
+                <button class="btn-resource" id="showCalendarBtn">&#128197; Activity Calendar</button>
+                <button class="btn-resource" id="showResourcesBtn">Resources &amp; Cheat Sheets</button>
+                <button class="btn-resource" id="showRoadmapBtn">Full Roadmap</button>
+                <button class="btn-resource" id="exportNotesBtn">&#128190; Export All Notes</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Welcome Screen -->
+            <section class="welcome-screen" id="welcomeScreen">
+                <div class="welcome-hero">
+                    <h2>Welcome to DevOps Mastery</h2>
+                    <p>A complete, self-contained 16-week journey from absolute beginner to advanced DevOps engineer.</p>
+                    <div class="welcome-stats">
+                        <div class="stat-card">
+                            <span class="stat-num">16</span>
+                            <span class="stat-label">Weeks</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">160</span>
+                            <span class="stat-label">Hours</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">3</span>
+                            <span class="stat-label">Capstones</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-num">200+</span>
+                            <span class="stat-label">Interview Q&amp;A</span>
+                        </div>
+                    </div>
+                    <div class="welcome-topics">
+                        <span class="topic-tag">Linux</span>
+                        <span class="topic-tag">Shell Scripting</span>
+                        <span class="topic-tag">Git &amp; GitHub</span>
+                        <span class="topic-tag">Networking</span>
+                        <span class="topic-tag">Docker</span>
+                        <span class="topic-tag">Kubernetes</span>
+                        <span class="topic-tag">CI/CD</span>
+                        <span class="topic-tag">Terraform</span>
+                        <span class="topic-tag">AWS</span>
+                        <span class="topic-tag">Monitoring</span>
+                        <span class="topic-tag">DevSecOps</span>
+                        <span class="topic-tag">System Design</span>
+                        <span class="topic-tag">Scaling &amp; HA</span>
+                        <span class="topic-tag">Deployment Strategies</span>
+                    </div>
+                    <button class="btn-start" id="startLearningBtn">Start Learning &rarr;</button>
+                    <p class="kb-hint">Press <kbd>?</kbd> anytime for keyboard shortcuts</p>
+                </div>
+            </section>
+
+            <!-- Week Content Container -->
+            <section class="week-content" id="weekContent" style="display:none;">
+                <div class="week-header" id="weekHeader">
+                    <!-- Populated by JS -->
+                </div>
+                <!-- Time Tracker -->
+                <div class="time-tracker" id="timeTracker">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="week-progress-row" id="weekProgressRow">
+                    <!-- Populated by JS -->
+                </div>
+                <!-- Floating TOC -->
+                <div class="week-toc" id="weekToc">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="week-sections" id="weekSections">
+                    <!-- Populated by JS -->
+                </div>
+                <!-- Weekly Self-Review -->
+                <div class="week-review" id="weekReview">
+                    <!-- Populated by JS -->
+                </div>
+                <div class="week-notes">
+                    <h3>&#128221; My Notes for This Week</h3>
+                    <textarea id="weekNotes" placeholder="Type your notes here... They are auto-saved to your browser."></textarea>
+                </div>
+                <div class="week-nav-buttons">
+                    <button class="btn-nav" id="prevWeekBtn">&larr; Previous Week</button>
+                    <button class="btn-nav btn-print" id="printWeekBtn">&#128424; Print Week</button>
+                    <button class="btn-nav" id="nextWeekBtn">Next Week &rarr;</button>
+                </div>
+            </section>
+
+            <!-- Bookmarks Page -->
+            <section class="bookmarks-page page-hidden" id="bookmarksPage">
+                <h2>&#9733; Bookmarked Sections</h2>
+                <p class="page-subtitle">Sections you starred for quick access</p>
+                <div id="bookmarksContent"><p class="empty-state">No bookmarks yet. Click the star on any section header to bookmark it.</p></div>
+            </section>
+
+            <!-- Quiz Page -->
+            <section class="quiz-page page-hidden" id="quizPage">
+                <h2>&#10068; Quiz Mode</h2>
+                <p class="page-subtitle">Test your knowledge with interview questions from all weeks</p>
+                <div class="quiz-controls">
+                    <select id="quizWeekSelect"><option value="all">All Weeks</option></select>
+                    <button class="btn-start" id="startQuizBtn">Start Quiz</button>
+                </div>
+                <div id="quizArea"></div>
+            </section>
+
+            <!-- Glossary Page -->
+            <section class="glossary-page page-hidden" id="glossaryPage">
+                <h2>&#9776; Command Glossary</h2>
+                <p class="page-subtitle">Searchable reference of every command in the course</p>
+                <input type="text" class="glossary-search" id="glossarySearch" placeholder="Search commands... (e.g. docker, kubectl, grep)">
+                <div class="glossary-filter" id="glossaryFilter">
+                    <!-- Populated by JS -->
+                </div>
+                <div id="glossaryContent"></div>
+            </section>
+
+            <!-- Activity Calendar Page -->
+            <section class="calendar-page page-hidden" id="calendarPage">
+                <h2>&#128197; Activity Calendar</h2>
+                <p class="page-subtitle">Your study streak — every day you open a week counts</p>
+                <div class="streak-stats" id="streakStats"></div>
+                <div class="calendar-grid" id="calendarGrid"></div>
+                <div class="calendar-legend">
+                    <span class="legend-item"><span class="legend-box l0"></span> No activity</span>
+                    <span class="legend-item"><span class="legend-box l1"></span> Light</span>
+                    <span class="legend-item"><span class="legend-box l2"></span> Moderate</span>
+                    <span class="legend-item"><span class="legend-box l3"></span> Heavy</span>
+                </div>
+            </section>
+
+            <!-- Resources Page -->
+            <section class="resources-page page-hidden" id="resourcesPage">
+                <h2>Resources &amp; Cheat Sheets</h2>
+                <div id="resourcesContent"></div>
+            </section>
+
+            <!-- Roadmap Page -->
+            <section class="roadmap-page page-hidden" id="roadmapPage">
+                <h2>Full DevOps Roadmap</h2>
+                <div class="roadmap-timeline" id="roadmapTimeline"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Keyboard Shortcuts Modal -->
+    <div class="modal-overlay" id="kbModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3>Keyboard Shortcuts</h3>
+                <button class="modal-close" id="kbModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <table class="kb-table">
+                    <tr><td><kbd>j</kbd></td><td>Next week</td></tr>
+                    <tr><td><kbd>k</kbd></td><td>Previous week</td></tr>
+                    <tr><td><kbd>e</kbd></td><td>Expand all sections</td></tr>
+                    <tr><td><kbd>c</kbd></td><td>Collapse all sections</td></tr>
+                    <tr><td><kbd>n</kbd></td><td>Focus notes textarea</td></tr>
+                    <tr><td><kbd>/</kbd></td><td>Focus search</td></tr>
+                    <tr><td><kbd>h</kbd></td><td>Go to home/welcome</td></tr>
+                    <tr><td><kbd>p</kbd></td><td>Print current week</td></tr>
+                    <tr><td><kbd>d</kbd></td><td>Toggle dark/light mode</td></tr>
+                    <tr><td><kbd>?</kbd></td><td>Show this help</td></tr>
+                    <tr><td><kbd>Esc</kbd></td><td>Close modal / clear search</td></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
